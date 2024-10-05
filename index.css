@@ -1,0 +1,95 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    margin: 1rem;
+}
+.container h2{
+    font-size: 1rem;
+}
+.container .con{
+    padding: 1rem;
+}
+.con button{
+    font-size: 3.5rem;
+    margin: 1rem;
+    border-radius: 50%;
+    background-color: aqua;
+}
+.container .ans{
+    width: 100%;
+}
+.ans h2{
+    margin: 1rem;
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+#answer{
+    text-align: center;
+}
+.score{
+    width: 100%;
+    margin: 0.5rem;
+    font-size: 2rem;
+    display: flex;
+}
+.green,#playerscore{
+    color: green;
+}
+.red,#systemscore{
+    color: red;
+}
+@media (min-width:440px) and (max-width:840px) {
+    .container{
+        width: 70%;
+        height: 50%;
+        padding: 1.5rem;
+    }       
+    .con button{
+        font-size: 3rem;
+        margin: 1rem;
+    }
+    .ans h2{
+        font-size: 1.8rem;
+    }
+    .score{
+        margin: 0.5rem;
+        font-size: 1.7rem;
+    }    
+}
+@media (max-width:439px) {
+    .container{
+        width: 100%;
+        height: 50%;
+        padding: 0.6rem;
+        text-align: center;
+    }       
+    .container h2{
+        font-size: 1rem;
+    }    
+    .con button{
+        font-size: 2rem;
+        margin: 0.6rem;
+    }
+    .ans h2{
+        font-size: 1.2rem;
+    }
+    .score{
+        margin: 0.5rem;
+        font-size: 1.2rem;
+    }    
+}
