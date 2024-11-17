@@ -1,45 +1,54 @@
 const selectans = document.querySelector("#selectans");
 const systemans = document.querySelector("#systemans");
 const answer = document.querySelector("#answer");
-const choice = ['rock', 'paper', 'scissors'];
-const playerpoint=document.getElementById("playerscore");
-const systempoint=document.getElementById("systemscore");
-let playerscores=0;
-let ststemscores=0;
+const playerpoint = document.getElementById("playerscore");
+const systempoint = document.getElementById("systemscore");
 
-function sender(ans) {
-    const computer = choice[Math.floor(Math.random() * 3)];
-    console.log(computer)
-    let result="";
-    if (ans === computer) {
+const choices = ['rock', 'paper', 'scissors'];
+let playerScore = 0;
+let computerScore = 0;
+
+function sender(playerChoice) {
+    const computerChoice = choices[Math.floor(Math.random() * 3)];
+    let result = "";
+
+    // Determine game outcome
+    if (playerChoice === computerChoice) {
         result = "It's a tie!";
     } else {
-        switch (ans) {
+        switch (playerChoice) {
             case "rock":
-                result = (computer === "scissors") ? "you win" : "you loss";
+                result = (computerChoice === "scissors") ? "You win!" : "You lose!";
                 break;
             case "paper":
-                result = (computer === "rock") ? "you win" : "you loss";
+                result = (computerChoice === "rock") ? "You win!" : "You lose!";
                 break;
             case "scissors":
-                result = (computer === "paper") ? "you win" : "you loss";
+                result = (computerChoice === "paper") ? "You win!" : "You lose!";
                 break;
         }
     }
-    selectans.textContent = `Player:${ans}`;
-    systemans.textContent = `Computer: ${computer}`;
+
+    // Update display choices
+    selectans.textContent = `Player: ${playerChoice}`;
+    systemans.textContent = `Computer: ${computerChoice}`;
     answer.textContent = result;
-    answer.classList.remove("green","red")
-    switch (result){
-        case "you win":
-            answer.classList.add("green");
-            playerscores++;
-            playerpoint.textContent=playerscores;
-            break;
-        case "you loss":
-            answer.classList.add("red");
-            ststemscores++;
-            systempoint.textContent=ststemscores;
-            break;
+    answer.classList.remove("green", "red");
+
+    // Update scores and colors based on result
+    if (result === "You win!") {
+        answer.classList.add("green");
+        playerScore++;
+        playerpoint.textContent = playerScore;
+    } else if (result === "You lose!") {
+        answer.classList.add("red");
+        computerScore++;
+        systempoint.textContent = computerScore;
     }
+
+    // Animate the result message
+    answer.style.transform = "scale(1.2)";
+    setTimeout(() => {
+        answer.style.transform = "scale(1)";
+    }, 300);
 }
